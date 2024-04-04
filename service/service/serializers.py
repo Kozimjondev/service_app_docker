@@ -28,5 +28,8 @@ class SubscriptionSerializer(serializers.ModelSerializer):
             'plan',
         )
 
+    # def get_price(self, obj):
+    #     return obj.service.full_price - obj.service.full_price * obj.plan.discount / 100
+
     def get_price(self, obj):
-        return obj.service.full_price - obj.service.full_price * obj.plan.discount / 100
+        return obj.price
