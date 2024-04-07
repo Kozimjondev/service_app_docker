@@ -21,7 +21,7 @@ class SubscriptionViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
 
         response = super(SubscriptionViewSet, self).list(request, *args, **kwargs)
-        response_data = {'result': response.data}
-        response_data['total_amount'] = queryset.aggregate(total=Sum('price')).get('total', 0)
+        response_data = {'result': response.data,
+                         'total_amount': queryset.aggregate(total=Sum('price')).get('total', 0)}
 
         return Response(response_data, status=status.HTTP_200_OK)
