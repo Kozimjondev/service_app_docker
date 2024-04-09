@@ -24,8 +24,8 @@ class SubscriptionSerializer(serializers.ModelSerializer):
             'client_company',
             'client_email',
             'service',
-            'price',
             'plan',
+            'price',
         )
 
     # def get_price(self, obj):

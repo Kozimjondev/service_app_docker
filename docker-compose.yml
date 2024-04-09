@@ -43,13 +43,19 @@ services:
       - redis
     depends_on:
       - redis
+      - database
+    environment:
+      - DB_HOST=database
+      - DB_NAME=dbname
+      - DB_USER=dbuser
+      - DB_PASS=pass
 
   flower:
     build:
       context: .
     hostname: flower
     entrypoint: celery
-    command: -A core flower --loglevel=info
+    command: -A core flower
     volumes:
       - ./service:/service
     links:
