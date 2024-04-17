@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'client',
     'service',
 
-    # thirdy packages
+    # third party packages
     'rest_framework',
-
+    'cachalot',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +159,4 @@ CACHES = {
 }
 
 PRICE_CACHE_NAME = 'price_cache'
+
